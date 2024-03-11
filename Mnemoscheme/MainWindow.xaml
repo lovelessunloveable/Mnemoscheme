@@ -8,6 +8,9 @@
 		Icon="\Resources\Icon.png"
         Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.6*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
     </Grid>
 </Window>
