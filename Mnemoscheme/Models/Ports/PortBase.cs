@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace Mnemoscheme.Models.Ports
 {
-    abstract class IPort
+    abstract class PortBase
     {
         protected SerialPort _serialPort;
         public string PortName => _serialPort.PortName;
         public int BaudRate => _serialPort.BaudRate;
         public bool IsOpen => _serialPort.IsOpen;
 
-        public IPort()
+        public PortBase()
         {
             _serialPort = new SerialPort();
         }
 
-        public IPort(string PortName)
+        public PortBase(string PortName)
         {
             _serialPort = new SerialPort();
 
             SetPortName(PortName);
         }
 
-        public IPort(string PortName, int BaudRate)
+        public PortBase(string PortName, int BaudRate)
         {
             _serialPort = new SerialPort();
 

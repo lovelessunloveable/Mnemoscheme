@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mnemoscheme.Models.Ports
 {
-    internal class UniversalPort : IPort, IPortWritable, IPortReadable
+    internal class UniversalPort : PortBase, IPortWritable, IPortReadable
     {
         public override void Close()
         {
