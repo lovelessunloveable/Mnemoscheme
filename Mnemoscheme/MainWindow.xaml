@@ -12,19 +12,19 @@
     </WindowChrome.WindowChrome>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*" MaxHeight="35"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
         <!--#region Top menu-->
         <Grid Grid.Row="0" Background="{StaticResource WhiteColor}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 4 0 0">
-                <Button Style="{StaticResource WindowButtonStyle}" VerticalAlignment="Center" Content="&#xf2d1;" Click="MinimizeWindow" Width="50" Margin="0 0 10 0"/>
-                <Button Style="{StaticResource WindowMaximizeButtonStyle}" VerticalAlignment="Center" Click="MaximizeWindow" Width="50" Margin="0 0 10 0">
+                <Button Style="{StaticResource WindowButtonStyle}" VerticalAlignment="Center" Content="&#xf2d1;" Click="MinimizeWindow" Width="50"/>
+                <Button Style="{StaticResource WindowMaximizeButtonStyle}" VerticalAlignment="Center" Click="MaximizeWindow" Width="50">
 
                 </Button>
                 <!-- f0c8 - чтобы свернуть -->
-                <Button Style="{StaticResource WindowButtonStyle}" VerticalAlignment="Center" Content="&#xf00d;" Click="CloseWindow" Width="50" Margin="0 0 10 0"/>
+                <Button Style="{StaticResource WindowButtonStyle}" VerticalAlignment="Center" Content="&#xf00d;" Click="CloseWindow" Width="50"/>
 
             </StackPanel>
         </Grid>
