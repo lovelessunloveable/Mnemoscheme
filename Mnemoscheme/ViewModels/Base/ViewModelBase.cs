@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mnemoscheme.ViewModels.ViewModelBase
+namespace Mnemoscheme.ViewModels.Base
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
