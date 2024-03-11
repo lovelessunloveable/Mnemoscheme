@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Ports\PortBase.cs" />
+    <Compile Include="Models\Ports\IPortReadable.cs" />
+    <Compile Include="Models\Ports\IPortWritable.cs" />
+    <Compile Include="Models\Ports\UniversalPort.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
     <Page Include="MainWindow.xaml">
@@ -112,7 +116,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
