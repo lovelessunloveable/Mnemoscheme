@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\Ports\IPort.cs" />
+    <Compile Include="Models\Ports\PortBase.cs" />
     <Compile Include="Models\Ports\IPortReadable.cs" />
     <Compile Include="Models\Ports\IPortWritable.cs" />
     <Compile Include="Models\Ports\UniversalPort.cs" />
