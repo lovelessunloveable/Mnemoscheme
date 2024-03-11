@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <!--#region Top menu-->
         <Grid Grid.Row="0" Background="{StaticResource WhiteColor}">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 4 0 0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Style="{StaticResource WindowButtonStyle}" VerticalAlignment="Center" Content="&#xf2d1;" Click="MinimizeWindow" Width="50"/>
                 <Button Style="{StaticResource WindowMaximizeButtonStyle}" VerticalAlignment="Center" Click="MaximizeWindow" Width="50">
 
