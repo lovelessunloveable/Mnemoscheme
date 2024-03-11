@@ -12,6 +12,7 @@ namespace Mnemoscheme.Models.Ports
         protected SerialPort _serialPort;
         public string PortName => _serialPort.PortName;
         public int BaudRate => _serialPort.BaudRate;
+        public bool IsOpen => _serialPort.IsOpen;
 
         public IPort()
         {
