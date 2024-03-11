@@ -6,4 +6,5 @@
     <SolidColorBrush x:Key="WorkSpaceBackGround" Color="#f8f2f4" />
     <SolidColorBrush x:Key="UnSelectedTextColor" Color="#504e4f" />
     <SolidColorBrush x:Key="LightBlackTextColor" Color="#8f8d8e" />
+    <SolidColorBrush x:Key="BlackColor" Color="#000000"/>
 </ResourceDictionary>

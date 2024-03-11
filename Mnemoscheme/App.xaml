@@ -6,8 +6,17 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\Styles\Buttons\WindowButtonStyle.xaml"/>
                 <ResourceDictionary Source="Resources\Styles\Colors.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <FontFamily x:Key="FontAwesomeSolid">
+                ./Resources/Fonts/#Font Awesome 6 Free Solid
+            </FontFamily>
+            <FontFamily x:Key="FontAwesomeRegular">
+                ./Resources/Fonts/#Font Awesome 6 Free Regular
+            </FontFamily>
+                
         </ResourceDictionary>
     </Application.Resources>
 </Application>
