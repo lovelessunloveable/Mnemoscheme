@@ -116,6 +116,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Devices\Base\" />
+    <Folder Include="Models\Devices\Reactor\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
