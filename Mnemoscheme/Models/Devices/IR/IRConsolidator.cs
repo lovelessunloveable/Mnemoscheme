@@ -1,4 +1,5 @@
-﻿using Mnemoscheme.Models.Logs;
+﻿using Mnemoscheme.Models.Devices.Base;
+using Mnemoscheme.Models.Logs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
@@ -8,17 +9,10 @@ using System.Threading.Tasks;
 
 namespace Mnemoscheme.Models.Devices.IR
 {
-    internal enum ErrorType
-    {
-        PortIsUnavailable,
-        CorruptData,
-    }
-
-    internal class IRConsolidator
+    internal class IRConsolidator : BaseConsolidator
     {
         private IRDevice _device;
         private IRDeviceState _deviceState;
-        private Logger _logger;
         //TODO: add DataBase
 
         public IRConsolidator(IRDevice Device, Logger Logger) 
@@ -52,12 +46,6 @@ namespace Mnemoscheme.Models.Devices.IR
             }
 
             SendToLogger(LoggerInfo, LogType.INFO);
-        }
-
-        public void SendToLogger(string message, LogType eventLogType) 
-        {
-            _logger?.ToString();
-            Console.WriteLine($"|{eventLogType.ToString()}| {message}");
         }
 
         public void SaveData(int Temperature, long Time)

@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Models\Devices\Base\BaseConsolidator.cs" />
     <Compile Include="Models\Devices\IR\IRCommands.cs" />
     <Compile Include="Models\Devices\IR\IRConsolidator.cs" />
     <Compile Include="Models\Devices\IR\IRController.cs" />
@@ -127,7 +128,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Devices\Base\" />
     <Folder Include="Models\Devices\Reactor\" />
     <Folder Include="Views\" />
   </ItemGroup>
