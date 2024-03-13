@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mnemoscheme.Properties
+namespace IRLibriary.Properties
 {
 
 

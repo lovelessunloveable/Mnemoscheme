@@ -1,12 +1,11 @@
-﻿using Mnemoscheme.Models.Logs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mnemoscheme.Models.Devices.IR
+namespace IRLibriary
 {
     internal enum ErrorType
     {
@@ -55,8 +54,8 @@ namespace Mnemoscheme.Models.Devices.IR
         }
 
         public void SendToLogger(string message, LogType eventLogType) 
-        {
-            _logger?.ToString();
+        { 
+            throw new NotImplementedException();
         }
 
         public void SaveData(int Temperature, long Time)
@@ -64,6 +63,11 @@ namespace Mnemoscheme.Models.Devices.IR
             //TODO: Call DataBase to Save
 
             SendToLogger($"Got IR Data: Temperature: {Temperature}, Time: {Time}", LogType.INFO);
+        }
+
+        internal void SendToLogger(string v, object wARNING)
+        {
+            throw new NotImplementedException();
         }
     }
 }

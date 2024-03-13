@@ -1,12 +1,11 @@
-﻿using Mnemoscheme.Models.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mnemoscheme.Models.Devices.IR;
+using IRLibriary;
 
-namespace Mnemoscheme.Models.Devices.IR
+namespace IRLibriary
 {
     public class IRDevice : OnPropertyChangedBase
     {
@@ -21,7 +20,9 @@ namespace Mnemoscheme.Models.Devices.IR
         public IRDevice() 
         { 
             _deviceState = new IRDeviceState();
-            _consolidator = new IRConsolidator(this, null);
+            _consolidator = new IRConsolidator(this);
         }
+
+        public void ChangeDeviceState(IRState state) => _deviceState.IRState = state;
     }
 }
