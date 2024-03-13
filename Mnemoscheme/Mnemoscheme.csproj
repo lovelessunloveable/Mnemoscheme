@@ -55,6 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Devices\IR\IRCommands.cs" />
+    <Compile Include="Models\Devices\IR\IRConsolidator.cs" />
+    <Compile Include="Models\Devices\IR\IRController.cs" />
+    <Compile Include="Models\Devices\IR\IRDataParser.cs" />
+    <Compile Include="Models\Devices\IR\IRDevice.cs" />
+    <Compile Include="Models\Devices\IR\IRDeviceState.cs" />
+    <Compile Include="Models\Helpers\OnPropertyChangedBase.cs" />
+    <Compile Include="Models\Logs\Logger.cs" />
     <Compile Include="Models\Ports\PortBase.cs" />
     <Compile Include="Models\Ports\IPortReadable.cs" />
     <Compile Include="Models\Ports\IPortWritable.cs" />

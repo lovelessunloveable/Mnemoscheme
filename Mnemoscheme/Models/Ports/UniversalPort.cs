@@ -15,6 +15,7 @@ namespace Mnemoscheme.Models.Ports
             //TODO: Close Thread
         }
 
+
         public string ReadLine()
         {
             throw new NotImplementedException();
@@ -22,7 +23,12 @@ namespace Mnemoscheme.Models.Ports
 
         public void WriteLine(string Line)
         {
-            throw new NotImplementedException();
+            _serialPort.WriteLine(Line);
+        }
+
+        public void Write(string Text)
+        {
+            _serialPort.Write(Text);
         }
     }
 }
