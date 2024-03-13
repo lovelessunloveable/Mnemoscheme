@@ -16,17 +16,16 @@ namespace Mnemoscheme.Models.Devices.IR
 
     public class IRDeviceState : OnPropertyChangedBase
     {
-        private IRState _state;
-        private bool _isMeasuring = false;
 
+        #region Public Attributes
         public IRState IRState
         {
-            set 
-            { 
-                _state = value; 
+            set
+            {
+                _state = value;
                 OnPropertyChanged();
             }
-            
+
             get
             {
                 return _state;
@@ -38,5 +37,41 @@ namespace Mnemoscheme.Models.Devices.IR
             set { _isMeasuring = value; OnPropertyChanged(); }
             get => _isMeasuring;
         }
+
+        public int CurrentTemperature
+        {
+            set
+            {
+                _currentTemperature = value;
+                OnPropertyChanged();
+            }
+
+            get
+            {
+                return _currentTemperature;
+            }
+        }
+
+        public long CurrentTime
+        {
+            set
+            {
+                _currentTime = value;
+                OnPropertyChanged();
+            }
+
+            get
+            {
+                return _currentTime;
+            }
+        }
+        #endregion
+
+
+        private IRState _state;
+        private bool _isMeasuring = false;
+
+        private int _currentTemperature = 0;
+        private long _currentTime = 0;
     }
 }

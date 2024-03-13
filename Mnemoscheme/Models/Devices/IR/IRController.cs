@@ -9,18 +9,19 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Markup;
+using System.IO;
 
 namespace Mnemoscheme.Models.Devices.IR
 {
     internal class IRController
     {
-        private IRDevice _irDevice;
         private SerialPort _serialPort;
         private IRConsolidator _consolidator;
 
-        public IRController(IRDevice irDevice, IRConsolidator consolidator)
+        const int MaxZeroDataCount = 10;
+
+        public IRController(IRConsolidator consolidator)
         {
-            _irDevice = irDevice;
             _consolidator = consolidator;
         }
 
@@ -31,15 +32,13 @@ namespace Mnemoscheme.Models.Devices.IR
             {
                 _serialPort.Open();
             }
-            catch (UnauthorizedAccessException)
+            catch (IOException)
             {
                 _consolidator?.SendToLogger($"Port is unavailable: ${Port.PortName}", LogType.ERROR);
                 return;
             }
 
             var IRDataReadingThread = new Thread(() => Reading(Port, interval));
-            IRDataReadingThread.IsBackground = true;
-            IRDataReadingThread.Priority = ThreadPriority.Highest;
             IRDataReadingThread.Start();
         }
 
@@ -53,15 +52,24 @@ namespace Mnemoscheme.Models.Devices.IR
             stopwatch.Start();
             _consolidator?.ChangeState(IRState.WaitInterval);
 
+            int ZeroDataCount = 0;
+
             while (Port.IsOpen)
             {
                 try
                 {
+                    if(ZeroDataCount == MaxZeroDataCount)
+                    {
+                        _consolidator.SendToLogger("A lot of zero data. Check the IR and port baud rate or reload it", LogType.ERROR);
+                        StopReading();
+                        break;
+                    }
+
                     Thread.Sleep(interval);
                     int temperature = -1;
                     do
                     {
-                        Port?.Write(IRCommands.GetInitialCommand(), 0, 3);
+                        Port?.Write(IRCommands.GetReadDataCommand(), 0, 3);
                         string Data = Port?.ReadExisting();
                         temperature = IRDataParser.GetTemperature(Data);
 
@@ -71,17 +79,29 @@ namespace Mnemoscheme.Models.Devices.IR
                     while (temperature == -1 && Port != null);
 
                     if (temperature == 0)
+                    {
+                        _consolidator.SendToLogger("IR got zero data", LogType.WARNING);
+                        ZeroDataCount++;
                         continue;
+                    }
 
                     long time = stopwatch.ElapsedMilliseconds;
 
                     _consolidator?.SaveData(temperature, time);
                 }
-                catch(UnauthorizedAccessException)
+                catch(IOException)
                 {
                     _consolidator?.SendToLogger($"Port is unavailable: ${Port.PortName}", LogType.ERROR);
                     StopReading();
                     break;
+                }
+                catch (InvalidOperationException ex) 
+                {
+                    if (!Port.IsOpen)
+                        break;
+
+                    _consolidator?.SendToLogger($"{ex.Message} was on port ${Port.PortName}", LogType.ERROR);
+
                 }
                 //TODO Add all possible cathces 
             }
@@ -91,7 +111,11 @@ namespace Mnemoscheme.Models.Devices.IR
 
         public void StopReading()
         {
-            _serialPort?.Close();
+            if (_serialPort != null)
+            {
+                _serialPort?.Write(IRCommands.GetStopCommand(), 0, 3);
+                _serialPort?.Close();
+            }
             _consolidator?.SendToLogger($"Port closed: {_serialPort.PortName}, {_serialPort.BaudRate}", Logs.LogType.INFO);
             _consolidator?.ChangeState(IRState.WaitForStart);
         }

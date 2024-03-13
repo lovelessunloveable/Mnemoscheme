@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mnemoscheme.Models.Ports;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace Mnemoscheme
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ComboBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            PortList.UpdateAvailablePortList();
         }
     }
 }

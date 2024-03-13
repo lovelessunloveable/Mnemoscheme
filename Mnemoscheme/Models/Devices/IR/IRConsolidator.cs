@@ -57,6 +57,7 @@ namespace Mnemoscheme.Models.Devices.IR
         public void SendToLogger(string message, LogType eventLogType) 
         {
             _logger?.ToString();
+            Console.WriteLine($"|{eventLogType.ToString()}| {message}");
         }
 
         public void SaveData(int Temperature, long Time)

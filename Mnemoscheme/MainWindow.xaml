@@ -4,9 +4,57 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mnemoscheme"
+        xmlns:vm="clr-namespace:Mnemoscheme.ViewModels"
         mc:Ignorable="d"
 		Icon="\Resources\Icon.png"
-        Height="450" Width="800">
+        Height="250" Width="400">
+    <Window.DataContext>
+        <vm:IRViewModel />
+    </Window.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Margin="5">
+                <TextBlock Text="{Binding IRState, StringFormat=State: {0} }"/>
+                <TextBlock Text="{Binding IsMeasuring, StringFormat=IsMeasuaring: {0}}"/>
+                <TextBlock Text="{Binding CurrentTemperature, StringFormat=Current Temperature: {0}}"/>
+                <TextBlock Text="{Binding CurrentTime, StringFormat=Current Time: {0}}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5" VerticalAlignment="Bottom">
+                <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" Background="White" ItemsSource="{Binding Speeds}" SelectedItem="{Binding PortSpeed}" MinWidth="40">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" FontSize="9" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox Margin="5" ItemsSource="{Binding Ports}" SelectedItem="{Binding PortName}" MinWidth="40" PreviewMouseLeftButtonDown="ComboBox_PreviewMouseLeftButtonDown">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" FontSize="9" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="{Binding ElementName=IntervalSlider, Path=Value}" VerticalAlignment="Center"/>
+            </StackPanel>
+            <Slider Name="IntervalSlider" Grid.Row="2" Margin="5 0" Value="{Binding Interval}" Minimum="300" Maximum="1500" IsSnapToTickEnabled="True" TickFrequency="100"/>
+        </Grid>
+
+        <StackPanel Grid.Column="1" 
+                    Orientation="Horizontal"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Margin="5">
+            <Button Content="Start" Background="Green" Width="80" Margin="0 0 5 0" Command="{Binding StartListenningCommand}"/>
+            <Button Content="Stop" Background="Red" Width="80" Command="{Binding StopListenningCommand}"/>
+        </StackPanel>
     </Grid>
 </Window>
