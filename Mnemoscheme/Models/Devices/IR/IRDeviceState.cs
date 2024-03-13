@@ -32,12 +32,6 @@ namespace Mnemoscheme.Models.Devices.IR
             }
         }
 
-        public bool IsMeasuring
-        {
-            set { _isMeasuring = value; OnPropertyChanged(); }
-            get => _isMeasuring;
-        }
-
         public int CurrentTemperature
         {
             set
@@ -69,7 +63,6 @@ namespace Mnemoscheme.Models.Devices.IR
 
 
         private IRState _state;
-        private bool _isMeasuring = false;
 
         private int _currentTemperature = 0;
         private long _currentTime = 0;

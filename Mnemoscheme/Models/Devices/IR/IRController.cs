@@ -50,7 +50,6 @@ namespace Mnemoscheme.Models.Devices.IR
             Stopwatch stopwatch = new Stopwatch();
 
             stopwatch.Start();
-            _consolidator?.ChangeState(IRState.WaitInterval);
 
             int ZeroDataCount = 0;
 
@@ -58,7 +57,9 @@ namespace Mnemoscheme.Models.Devices.IR
             {
                 try
                 {
-                    if(ZeroDataCount == MaxZeroDataCount)
+                    _consolidator?.ChangeState(IRState.WaitInterval);
+
+                    if (ZeroDataCount == MaxZeroDataCount)
                     {
                         _consolidator.SendToLogger("A lot of zero data. Check the IR and port baud rate or reload it", LogType.ERROR);
                         StopReading();
@@ -67,6 +68,9 @@ namespace Mnemoscheme.Models.Devices.IR
 
                     Thread.Sleep(interval);
                     int temperature = -1;
+
+                    _consolidator.ChangeState(IRState.Measuring);
+
                     do
                     {
                         Port?.Write(IRCommands.GetReadDataCommand(), 0, 3);

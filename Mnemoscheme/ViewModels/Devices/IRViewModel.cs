@@ -37,8 +37,6 @@ namespace Mnemoscheme.ViewModels
                 port.BaudRate = value;
             }
         }
-
-        public string IsMeasuring => _deviceState.IsMeasuring.ToString();
         public string IRState => _deviceState.IRState.ToString();
 
         public string CurrentTemperature => _deviceState.CurrentTemperature.ToString();

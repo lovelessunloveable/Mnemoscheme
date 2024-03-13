@@ -24,7 +24,6 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Margin="5">
                 <TextBlock Text="{Binding IRState, StringFormat=State: {0} }"/>
-                <TextBlock Text="{Binding IsMeasuring, StringFormat=IsMeasuaring: {0}}"/>
                 <TextBlock Text="{Binding CurrentTemperature, StringFormat=Current Temperature: {0}}"/>
                 <TextBlock Text="{Binding CurrentTime, StringFormat=Current Time: {0}}"/>
             </StackPanel>
