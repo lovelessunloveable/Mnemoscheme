@@ -63,6 +63,12 @@
     <Compile Include="Models\Devices\IR\IRDataParser.cs" />
     <Compile Include="Models\Devices\IR\IRDevice.cs" />
     <Compile Include="Models\Devices\IR\IRDeviceState.cs" />
+    <Compile Include="Models\Devices\Reactor\ReactorConsolidator.cs" />
+    <Compile Include="Models\Devices\Reactor\ReactorControler.cs" />
+    <Compile Include="Models\Devices\Reactor\ReactorDevice.cs" />
+    <Compile Include="Models\Devices\Reactor\ReactorDeviceState.cs" />
+    <Compile Include="Models\Devices\Reactor\SynthesConfigurations\Preset.cs" />
+    <Compile Include="Models\Devices\Reactor\SynthesConfigurations\TokMode.cs" />
     <Compile Include="Models\Helpers\OnPropertyChangedBase.cs" />
     <Compile Include="Models\Logs\Logger.cs" />
     <Compile Include="Models\Ports\PortBase.cs" />
@@ -128,7 +134,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Devices\Reactor\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
