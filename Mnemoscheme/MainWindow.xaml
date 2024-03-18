@@ -12,22 +12,24 @@
     </WindowChrome.WindowChrome>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition MinHeight="35" MaxHeight="50"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
         <!--#region Top menu-->
-        <Grid Grid.Row="0" Background="{StaticResource WhiteColor}">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Style="{StaticResource WindowButtonStyle}" VerticalAlignment="Center" Content="&#xf2d1;" Click="MinimizeWindow" Width="50"/>
-                <Button Style="{StaticResource WindowMaximizeButtonStyle}" VerticalAlignment="Center" Click="MaximizeWindow" Width="50">
+        <Border BorderBrush="{StaticResource GreyColor}" BorderThickness="0 0 0 2">
+            <Grid Grid.Row="0" Background="{StaticResource WhiteColor}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Style="{StaticResource WindowButtonStyle}" VerticalAlignment="Center" Content="&#xf2d1;" Click="MinimizeWindow" Width="50"/>
+                    <Button Style="{StaticResource WindowMaximizeButtonStyle}" VerticalAlignment="Center" Click="MaximizeWindow" Width="50">
 
-                </Button>
-                <!-- f0c8 - чтобы свернуть -->
-                <Button Style="{StaticResource WindowButtonStyle}" VerticalAlignment="Center" Content="&#xf00d;" Click="CloseWindow" Width="50"/>
+                    </Button>
+                    <!-- f0c8 - чтобы свернуть -->
+                    <Button Style="{StaticResource WindowButtonStyle}" VerticalAlignment="Center" Content="&#xf00d;" Click="CloseWindow" Width="50"/>
 
-            </StackPanel>
-        </Grid>
+                </StackPanel>
+            </Grid>
+        </Border>
         <!--#endregion-->
         <!--#region Top part-->
         <Grid Grid.Row="1" Background="{StaticResource MainColor}">
@@ -38,9 +40,14 @@
         </Grid>
         <!--#endregion-->
         <!--#region Bottom part-->
-        <Grid Grid.Row="2" Background="{StaticResource WhiteColor}">
-            
-        </Grid>
+        <Border Grid.Row="2" BorderBrush="{StaticResource GreyColor}" BorderThickness="0 2 0 0">
+            <Grid Grid.Row="2" Background="{StaticResource WhiteColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Border>
         <!--#endregion-->
     </Grid>
 </Window>

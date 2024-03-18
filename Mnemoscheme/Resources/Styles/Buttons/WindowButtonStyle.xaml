@@ -18,7 +18,7 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource LightBlackTextColor}"/>
                             <Setter Property="Background" Value="{DynamicResource WhiteColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

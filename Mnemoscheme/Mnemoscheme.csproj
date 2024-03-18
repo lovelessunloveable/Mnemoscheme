@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Logger\Logger.cs" />
     <Compile Include="Models\Ports\PortBase.cs" />
     <Compile Include="Models\Ports\IPortReadable.cs" />
     <Compile Include="Models\Ports\IPortWritable.cs" />
