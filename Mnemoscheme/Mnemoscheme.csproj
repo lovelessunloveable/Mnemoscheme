@@ -69,6 +69,7 @@
     <Compile Include="Models\Devices\Reactor\ReactorDeviceState.cs" />
     <Compile Include="Models\Devices\Reactor\SynthesConfigurations\Preset.cs" />
     <Compile Include="Models\Devices\Reactor\SynthesConfigurations\TokMode.cs" />
+    <Compile Include="Models\Helpers\MaximizeWindowHelper.cs" />
     <Compile Include="Models\Helpers\OnPropertyChangedBase.cs" />
     <Compile Include="Models\Logs\Logger.cs" />
     <Compile Include="Models\Ports\PortBase.cs" />
