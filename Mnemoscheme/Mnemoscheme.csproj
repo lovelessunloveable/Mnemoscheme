@@ -58,10 +58,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Logger\Logger.cs" />
-    <Compile Include="Models\Ports\PortBase.cs" />
-    <Compile Include="Models\Ports\IPortReadable.cs" />
-    <Compile Include="Models\Ports\IPortWritable.cs" />
-    <Compile Include="Models\Ports\UniversalPort.cs" />
     <Compile Include="Models\WindowHelper\MaximizeHelper.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
